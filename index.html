@@ -180,4 +180,22 @@ redFrameTl
   .to("#_02-red-frame", { opacity: .65, duration: 0.2 })
   // Fully on and stable
   .to("#_02-red-frame", { boxShadow: "0 0 40px rgba(255, 0, 0, 1)", duration: 0.5 });
+
+  
+  // Listen for the F key to enter fullscreen and ESC to exit
+document.addEventListener('keydown', function(e) {
+  // Check if the pressed key is 'f' or 'F'
+  if (e.key.toLowerCase() === 'f') {
+    if (!document.fullscreenElement) {
+      // Enter fullscreen
+      if (document.documentElement.requestFullscreen) {
+        document.documentElement.requestFullscreen();
+      } else if (document.documentElement.webkitRequestFullscreen) {
+        document.documentElement.webkitRequestFullscreen();
+      } else if (document.documentElement.msRequestFullscreen) {
+        document.documentElement.msRequestFullscreen();
+      }
+    }
+  }
+});
 </script>
